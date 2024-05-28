@@ -1,0 +1,69 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="500"
+		x:CompileBindings="False"
+        x:Class="AvaloniaApplication3.Product_list"
+        Title="Product_list"
+		MaxWidth="800" MaxHeight="500" MinHeight="500" MinWidth="800">
+	<Grid RowDefinitions="70, 30, 30, 50, 200">
+		<StackPanel>
+			<Grid RowDefinitions="20, 30">
+				<TextBlock Name="FIO" HorizontalAlignment="Right" Margin="5"/>
+				<Button  HorizontalAlignment="Right" Click="ButtonPressed" Grid.Row="3" Content="Выйти" Margin="0, 0, 10, 0"/>
+			</Grid>
+		</StackPanel>
+		<StackPanel Grid.Row="1">
+			<Border BorderBrush="Black"  BorderThickness="1" Height="30" VerticalAlignment="Top">
+				<TextBox KeyUp="SearchList" Text="{Binding Search}" Name="poisk" BorderBrush="White" Watermark="Поиск" Background="Transparent"/>
+			</Border>
+		</StackPanel>
+		<DockPanel Grid.Row="2">
+			<Grid ColumnDefinitions="120, 150">
+			<Button Content="По убыванию" Name="sort" Click="sortdown"/>
+			<Button Content="По возврастанию" Name="sort2" Grid.Column="1" Click="Sortupp"/>
+				</Grid>
+			<ComboBox Grid.Column="2" BorderBrush="Blue" 
+					  SelectedIndex="0" Name="Combo" ItemsSource="{Binding Items}" Width="150">
+			</ComboBox>
+		</DockPanel>
+		<StackPanel Grid.Row="3">
+			<Grid RowDefinitions="300, 100">
+				<Border Height="300" BorderBrush="Black" BorderThickness="1">
+					<ListBox x:Name="start2" SelectionMode="Multiple, Toggle">
+						<ListBox.ItemTemplate>
+							<DataTemplate>
+								<StackPanel>
+									<Grid ColumnDefinitions="200, 200, 200">
+										<Border BorderBrush="Black" BorderThickness="1" CornerRadius="4" Padding="4">
+											<Image Source="{Binding ProductImage}" Name="pic"  MaxWidth="150" />
+										</Border>
+										<Border Grid.Column="1" BorderBrush="Black" BorderThickness="1" CornerRadius="4" Padding="4">
+											<Grid RowDefinitions="20, 20, 20, 20, 40">
+												<TextBlock Text="{Binding NameV}"/>
+												<TextBlock Grid.Row="3" Text="{Binding PriceV}"/>
+												<TextBlock Grid.Row="2" Text="{Binding opis}"/>
+												<TextBlock Grid.Row="1" Text="{Binding proisv}"/>
+												<TextBlock Grid.Row="4" Text="{Binding kolprod}"/>
+											</Grid>
+										</Border>
+										<Border BorderBrush="Black" Grid.Column="2" BorderThickness="1" CornerRadius="4" Padding="4">
+											<Grid RowDefinitions="35, 35">
+												<Button Content="Удалить" Click="Del" Tag="{Binding del}" Width="150" Height="30" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+												<Button Grid.Row="2" Click="ButtonPressed2" Tag="{Binding edit}" Background="Lavender" Content="Редактировать" Width="150" Height="30" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+											</Grid>
+										</Border>
+									</Grid>
+								</StackPanel>
+							</DataTemplate>
+						</ListBox.ItemTemplate>
+					</ListBox>
+				</Border>
+				<TextBlock Grid.Row="4" Name="zapret" IsVisible="false" Margin="10" Text="Вы не можете добавить продукты"/>
+				<Button Name="star" Click="ButtonPressed1" Grid.Row="4" Content="Добавить продукт" Margin="10, 0, 0, 0"/>
+				<Button Margin="180, 0, 0, 0" Grid.Row="4" Click="ButtonPressed3" Content="В корзину"/>
+			</Grid>
+		</StackPanel>
+	</Grid>
+</Window>

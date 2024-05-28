@@ -1,0 +1,23 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"  d:DesignWidth="400" d:DesignHeight="400"
+        x:Class="AvaloniaApplication3.MainWindow"
+        Title="AvaloniaApplication3"
+		MinWidth="400" MaxWidth="400" MinHeight="400" MaxHeight="400">
+	<StackPanel>
+		<Grid ColumnDefinitions="150, 250" RowDefinitions="70" Background="Aqua">
+			<TextBlock Margin="0, 20, 0, 0" FontSize="16" Grid.Column="1" Foreground="White" Text="Регистрация"/>
+		</Grid>
+		<Grid Margin="0, 10, 0, 0" ColumnDefinitions="150, 150" RowDefinitions="15, 20, 20, 20, 90, 50">
+			<TextBlock Text="Логин" Grid.Row="0" Margin="12, 0, 0, 0"/>
+			<TextBlock Text="Пароль" Grid.Row="2" Margin="12, 15, 0, 0"/>
+			<TextBlock Name="Oshib1" Margin="10, 20, 0, 0" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.ColumnSpan="2" Grid.Row="4"/>
+			<TextBox Name="Login" Margin="25, 15, 0, 0" Grid.Row="1" VerticalAlignment="Stretch" Grid.ColumnSpan="2" Width="350" HorizontalAlignment="Left" Watermark="Имя" />
+			<TextBox Name="Password" Margin="25, 20, 0, 0" Grid.Row="3" Grid.ColumnSpan="2" Width="350" HorizontalAlignment="Left" Watermark="Пароль"/>
+			<Button Name="One" Click="ButtonPressed" Grid.Row="5" Content="Войти" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+			<Button Click="ButtonPressed1" Grid.Row="5" Grid.Column="1" Content="Войти как гость" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin=""/>
+		</Grid>
+	</StackPanel>
+</Window>

@@ -1,0 +1,43 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="AvaloniaApplication3.Basket"
+		x:CompileBindings="False"
+        Title="Basket">
+	<DockPanel Margin="20" Background="White">
+		<TextBlock Margin="0 5" DockPanel.Dock="Top">Ваши продукты:</TextBlock>
+		<ListBox x:Name="korzina" SelectionMode="Multiple, Toggle">
+			<ListBox.ItemTemplate>
+				<DataTemplate>
+					<Grid ColumnDefinitions="200, 200, 200">
+						<Border BorderBrush="Black" BorderThickness="1" CornerRadius="4" Padding="4">
+							<Image Source="{Binding ProductImage}" Name="pic"  MaxWidth="150" />
+						</Border>
+						<Border Grid.Column="1" BorderBrush="Black" BorderThickness="1" CornerRadius="4" Padding="4">
+							<Grid RowDefinitions="20, 20, 20, 20, 40">
+								<TextBlock Text="{Binding NameV}"/>
+								<TextBlock Grid.Row="3" Text="{Binding PriceV}"/>
+								<TextBlock Grid.Row="2" Text="{Binding opis}"/>
+								<TextBlock Grid.Row="1" Text="{Binding proisv}"/>
+								<TextBlock Grid.Row="4" Text="{Binding kolprod}"/>
+							</Grid>
+						</Border>
+						<Border BorderBrush="Black" Grid.Column="2" BorderThickness="1" CornerRadius="4" Padding="4">
+							<Grid RowDefinitions="35, 35">
+								<Button Content="Удалить" Click="Delete" Tag="{Binding id}" Width="150" Height="30" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+							</Grid>
+						</Border>
+					</Grid>
+				</DataTemplate>
+			</ListBox.ItemTemplate>
+		</ListBox>
+		<Grid ColumnDefinitions = "100,200,200, 300" RowDefinitions="100,100,200">
+			<Border Grid.Column="2" Grid.Row="0" Background="Lavender" Width="200" Height="50">
+				<TextBlock HorizontalAlignment="Center" Name="SumF"/>
+			</Border>
+			<Button Background="Lavender" Click="Back" Content="Назад" Grid.Column="2" Grid.Row="1" Width="100" Height="30" HorizontalAlignment="Center" Margin="0,70,0,0"/>
+		</Grid>
+	</DockPanel>
+</Window>

@@ -1,0 +1,23 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="AvaloniaApplication3.Sale"
+		x:CompileBindings="False"
+        Title="Sale"
+		MaxHeight="450" MaxWidth="800">
+	<Grid RowDefinitions="50, 50, 50, 50, 50, 50, 50, 50">
+		<TextBlock Text="Здесь вы можете добавить товар в список продуктов"/>
+		<Image Grid.Column="1" Source="{Binding ProductImage}" Name="pic"  MaxWidth="300" />
+		<TextBox Name="prodName" Grid.Row="2" Height="20" Watermark="Введите название товара"/>
+		<TextBox Name="description" Grid.Row="3" Height="20" Watermark="Введите описание товара"/>
+		<TextBox Name="manufacturer" Grid.Row="4" Height="20" Watermark="Введите производителя"/>
+		<TextBox Name="priceName" Grid.Row="5" Height="20" Watermark="Введите цена товара"/>
+		<TextBox Name="quantity" Grid.Row="6" Height="20" Watermark="Введите количество товара"/>
+		<Button Name="dobav" Content="Добавить" Click="ButtonPressed1" Grid.Row="7"/>
+		<Button Name="zamena" Content="Изменить" Click="EditB" Grid.Row="7"/>
+		<Button Name="oplicate" Content="Добавить картинку" Click="Pict"  Grid.Row="7" Margin="100, 0, 0, 0"/>
+		<Button Name="aplicate" Content="Добавить картинку" Click="Pictt"  Grid.Row="7" Margin="100, 0, 0, 0"/>
+	</Grid>
+</Window>
